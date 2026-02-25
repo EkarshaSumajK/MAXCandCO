@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 240 10% 3.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 240 10% 3.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 240 10% 3.9%;
+		--primary: 213 94% 58%;
+		--primary-foreground: 0 0% 100%;
+		--secondary: 240 4.8% 95.9%;
+		--secondary-foreground: 240 5.9% 10%;
+		--muted: 240 4.8% 95.9%;
+		--muted-foreground: 240 3.8% 46.1%;
+		--accent: 240 4.8% 95.9%;
+		--accent-foreground: 240 5.9% 10%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 240 5.9% 90%;
+		--input: 240 5.9% 90%;
+		--ring: 213 94% 58%;
+		--radius: 1rem;
+		
+		/* Apple Light Theme Colors */
+		--apple-black: 255 255 255; /* White background */
+		--apple-dark: 245 245 247; /* Light gray background */
+		--apple-gray: 229 229 234;
+		--apple-gray2: 209 209 214;
+		--apple-gray3: 174 174 178;
+		--apple-white: 0 0 0; /* Black text */
+		--apple-grayText: 134 134 139;
+		--apple-blue: 41 151 255;
+		--apple-purple: 191 90 242;
+		--apple-pink: 255 55 95;
+		--apple-green: 48 209 88;
+		--apple-yellow: 255 214 10;
+		--apple-orange: 255 159 10;
+	}
+
+	.dark {
+		--background: 0 0% 3.9%;
+		--foreground: 0 0% 98%;
+		--card: 0 0% 6.1%;
+		--card-foreground: 0 0% 98%;
+		--popover: 0 0% 6.1%;
+		--popover-foreground: 0 0% 98%;
+		--primary: 212 100% 58%;
+		--primary-foreground: 0 0% 100%;
+		--secondary: 240 3.7% 15.9%;
+		--secondary-foreground: 0 0% 98%;
+		--muted: 240 3.7% 15.9%;
+		--muted-foreground: 240 5% 64.9%;
+		--accent: 240 3.7% 15.9%;
+		--accent-foreground: 0 0% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 240 3.7% 15.9%;
+		--input: 240 3.7% 15.9%;
+		--ring: 212 100% 58%;
+		
+		/* Apple Dark Theme Colors */
+		--apple-black: 0 0 0; /* Black background */
+		--apple-dark: 5 5 7; /* Dark gray background */
+		--apple-gray: 28 28 30;
+		--apple-gray2: 44 44 46;
+		--apple-gray3: 58 58 60;
+		--apple-white: 245 245 247; /* White text */
+		--apple-grayText: 134 134 139;
+		--apple-blue: 41 151 255;
+		--apple-purple: 191 90 242;
+		--apple-pink: 255 55 95;
+		--apple-green: 48 209 88;
+		--apple-yellow: 255 214 10;
+		--apple-orange: 255 159 10;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply bg-apple-black text-apple-white antialiased transition-colors duration-300;
+		font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Inter', sans-serif;
+		overflow-x: hidden;
+	}
+
+	::selection {
+		@apply bg-apple-blue/30 text-apple-white;
+	}
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+
+	.glass {
+		@apply backdrop-blur-xl bg-apple-gray/40 border border-apple-white/10;
+	}
+
+	.glass-light {
+		@apply backdrop-blur-md bg-apple-white/5 border border-apple-white/10;
+	}
+
+	.gradient-text {
+		@apply bg-gradient-to-r from-apple-blue via-apple-purple to-apple-pink bg-clip-text text-transparent;
+	}
+
+	.gradient-bg {
+		@apply bg-gradient-to-br from-apple-blue/20 via-apple-purple/10 to-apple-pink/5;
+	}
+
+	.glow-blue {
+		box-shadow: 0 0 60px -15px rgba(41, 151, 255, 0.3);
+	}
+
+	.glow-purple {
+		box-shadow: 0 0 60px -15px rgba(191, 90, 242, 0.3);
+	}
+
+	.glow-pink {
+		box-shadow: 0 0 60px -15px rgba(255, 55, 95, 0.3);
+	}
+
+	.animate-delay-100 {
+		animation-delay: 100ms;
+	}
+
+	.animate-delay-200 {
+		animation-delay: 200ms;
+	}
+
+	.animate-delay-300 {
+		animation-delay: 300ms;
+	}
+
+	.animate-delay-400 {
+		animation-delay: 400ms;
+	}
+
+	.animate-delay-500 {
+		animation-delay: 500ms;
+	}
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-apple-dark;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-apple-gray3 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-apple-grayText;
+}
+
+/* Smooth scrollbar for webkit */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: #3a3a3c #050507;
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	z-index: 9999;
+	opacity: 0.03;
+	background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
